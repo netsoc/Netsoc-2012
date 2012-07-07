@@ -1,0 +1,9 @@
+{% for x in article %}
+
+<h3><a href='/news/x.id'> {{ x.title }} by {{ request.user.get_full_name }}</a></h3>
+<p>{{x.body|truncatewords:"10"}}</p>
+
+{% empty %}
+<p>No news items :(</p>
+{% endfor %}
+
