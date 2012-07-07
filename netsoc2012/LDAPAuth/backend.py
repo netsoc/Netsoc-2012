@@ -61,11 +61,17 @@ def nd_set_attrs(user, attribute_tuples):
 			try:
 				group = Group.objects.get(name=value.cn)
 			except Group.DoesNotExist:
-				group = Group(name=value.cn)
-				group.save()
+					if user.username == value.cn:
+							#No need to save PersonalGroups
+							group = None
+							pass
+					else:
+							group = Group(name=value.cn)
+							group.save()
 			
 			# add the user to the groups he/she is in
-			user.groups.add(group)
+			if group is not None:
+					user.groups.add(group)
 			attributes += [(key, value.get_dn())]
 		else:
 			attributes += [(key, value)]

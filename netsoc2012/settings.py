@@ -30,7 +30,7 @@ DATABASES = {
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Europe/Dublin'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -61,7 +61,6 @@ MEDIA_URL = ''
 ADMIN_MEDIA_PREFIX = '/media/'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'w*u!_o^lf=%enexyfteys94+t$%0d)9fb9)7bzcfzuxav-$2sn'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -92,12 +91,18 @@ TEMPLATE_DIRS = (
 )
 STATIC_DOC_ROOT='static/'
 INSTALLED_APPS = (
-    'django.contrib.auth',
+    #Django default
+	'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+	
+	#Netsoc grown
+	'frontpage',
+	'news',
 	'LDAPAuth',
+	#3rd party apps
 	'south',
     # Uncomment the next line to enable the admin:
      'django.contrib.admin',
